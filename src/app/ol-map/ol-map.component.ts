@@ -1,8 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
 
-// import { Map, View } from 'ol';
-import View from 'ol/View.js';
-import Map from 'ol/src/Map.js';
+import { Map, View } from 'ol';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
 import Attribution from 'ol/control/Attribution';
@@ -15,7 +13,7 @@ import Attribution from 'ol/control/Attribution';
 })
 export class OlMapComponent implements OnInit, AfterViewInit {
   @ViewChild('mapDiv', { static: false }) mapDivView: ElementRef;
-  public map;
+  public map: Map;
   constructor() { }
 
   ngAfterViewInit() {
@@ -41,5 +39,4 @@ export class OlMapComponent implements OnInit, AfterViewInit {
       })
     });
   }
-
 }
