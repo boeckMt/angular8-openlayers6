@@ -1,6 +1,12 @@
 # Angular8Openlayers6
 
+This is a starter project to work with angular 8 and openlayers 6 with typescript
+
+- [angular](https://angular.io/)
+- [openlayers](https://openlayers.org/)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.0.
+
 
 ## Development server
 
