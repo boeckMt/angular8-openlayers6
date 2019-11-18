@@ -10,10 +10,12 @@ html,
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
+	height: 100%; // set this to 100% so .map height in % is working!
 }
 
 .map {
   width: 100%;
-  height: 100vh; //100%; if not set in px or vh ol 6.1.1 not working map height is 0
+  height: 100%; //100vh; //100%; if not set in px or vh ol 6.1.1 not working map height is 0
   position: relative;
 }
