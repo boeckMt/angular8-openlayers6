@@ -12,7 +12,7 @@ import Attribution from 'ol/control/Attribution';
   encapsulation: ViewEncapsulation.None
 })
 export class OlMapComponent implements OnInit, AfterViewInit {
-  @ViewChild('mapDiv', { static: false }) mapDivView: ElementRef;
+  @ViewChild('mapDiv') mapDivView: ElementRef;
   public map: Map;
   constructor() { }
 
