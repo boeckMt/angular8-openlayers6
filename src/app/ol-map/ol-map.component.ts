@@ -16,11 +16,11 @@ export class OlMapComponent implements OnInit, AfterViewInit {
   public map: Map;
   constructor() { }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.map.setTarget(this.mapDivView.nativeElement);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.map = new Map({
       controls: [
         new Attribution({
