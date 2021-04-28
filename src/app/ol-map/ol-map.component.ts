@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, ViewEncapsulat
 
 import { Map, View } from 'ol';
 import TileLayer from 'ol/layer/Tile';
+import { transform } from "ol/proj";
 import OSM from 'ol/source/OSM';
 import Attribution from 'ol/control/Attribution';
 
@@ -14,6 +15,8 @@ import Attribution from 'ol/control/Attribution';
 export class OlMapComponent implements OnInit, AfterViewInit {
   @ViewChild('mapDiv') mapDivView: ElementRef;
   public map: Map;
+  WebMercator = "EPSG:3857";
+  WGS84 = "EPSG:4326";
   constructor() { }
 
   ngAfterViewInit(): void {
@@ -21,6 +24,16 @@ export class OlMapComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+
+
+    const WebMercator = "EPSG:3857";
+    const WGS84 = "EPSG:4326";
+
+    const osmLayer = new TileLayer({
+      source: new OSM()
+    });
+
+
     this.map = new Map({
       controls: [
         new Attribution({
@@ -29,13 +42,16 @@ export class OlMapComponent implements OnInit, AfterViewInit {
         })
       ],
       layers: [
-        new TileLayer({
-          source: new OSM()
-        })
+        osmLayer
       ],
       view: new View({
-        center: [0, 0],
-        zoom: 0
+        center: transform(
+          [-111.10153522152252, 12.879058994639166],
+          WGS84,
+          WebMercator
+        ),
+        zoom: 2.6,
+        projection: WebMercator
       })
     });
   }
